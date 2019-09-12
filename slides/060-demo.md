@@ -5,9 +5,9 @@ Show gatsby-image basics:
 
 - blur-up
 
-- lazy-loading
-
 - fluid and fixed
+
+- lazy-loading
 
 Show transforms:
 

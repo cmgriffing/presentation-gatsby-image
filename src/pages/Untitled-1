@@ -1,0 +1,29 @@
+
+const _fileName = "partridgefamilybot"
+
+function myTag(fileName) {
+  return function(strings) {
+    const newStrings = [strings[0], fileName, strings[1]]
+    if (typeof window === "undefined") {
+      return graphql(newStrings)
+    }
+    return function(strings) {}
+  }
+}
+
+export const pageQuery = myTag(_fileName)`
+  query {
+    partidgeFamilyBotImage: file(
+      relativePath: { eq: "${_fileName}.jpg" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 2000) {
+          ...GatsbyImageSharpFluid
+        }
+        sqip(numberOfPrimitives: 300, blur: 0) {
+          dataURI
+        }
+      }
+    }
+  }
+`
