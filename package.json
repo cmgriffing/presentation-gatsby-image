@@ -36,9 +36,10 @@
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \"",
     "slides:assets": "mkdir -p html/assets && cp -a slides/assets/. html/assets/",
+    "demo:assets": "mkdir -p html/demo && cp -a public/. html/demo/",
     "slides:build": "npm run slides:assets && pandoc --section-divs -s -t revealjs slides/*.md -o html/index.html --verbose --slide-level=2 --from markdown-yaml_metadata_block --variable theme='beige'",
     "slides:watch": "nodemon --exec \"npm run slides:build\" slides/*.md",
-    "slides:deploy": "npm run slides:assets && npm run slides:build && git subtree push --prefix html origin gh-pages"
+    "slides:deploy": "npm run build && npm run demo:assets && npm run slides:assets && npm run slides:build && git subtree push --prefix html origin gh-pages"
   },
   "repository": {
     "type": "git",
